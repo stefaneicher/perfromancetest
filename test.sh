@@ -19,10 +19,15 @@ export M2_HOME="$initial_dir/.m2"
 
 echo "Cloning repository and checking out commit..."
 
-#time git clone --depth=1 --branch 056a2244 https://github.com/apache/commons-lang >> "$log_file"
-#rm -rf commons-lang
-#time git clone --depth=1 https://github.com/apache/commons-lang >> "$log_file"
+if [ -d "commons-lang" ]; then
+    rm -rf commons-lang
+fi
+echo "clone"
+time git clone --depth=1 https://github.com/apache/commons-lang >> "$log_file"
 cd commons-lang
+git checkout e8944ba1bee6d459e0e28a562d545bfd40aa5774
+exit
+
 
 echo "go offline"
 (time mvn dependency:go-offline >> "$log_file") 2>&1
