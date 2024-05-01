@@ -7,12 +7,12 @@ echo "System Information:" > time_log.txt
 echo "------------------" >> time_log.txt
 uname -a >> time_log.txt
 echo "------------------" >> time_log.txt
-lscpu >> time_log.txt
-echo "------------------" >> time_log.txt
-free -h >> time_log.txt
-echo "------------------" >> time_log.txt
+#lscpu >> time_log.txt
+#echo "------------------" >> time_log.txt
+#free -h >> time_log.txt
+#echo "------------------" >> time_log.txt
 
-export M2_HOME=$(pwd)/.m2§
+export M2_HOME=$(pwd)/.m2
 
 echo "Cloning repository and checking out commit..."
 mr -rf commons-lang
