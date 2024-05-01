@@ -25,9 +25,7 @@ fi
 echo "clone"
 time git clone --depth=1 https://github.com/apache/commons-lang >> "$log_file"
 cd commons-lang
-git checkout e8944ba1bee6d459e0e28a562d545bfd40aa5774
-exit
-
+#git checkout e8944ba1bee6d459e0e28a562d545bfd40aa5774
 
 echo "go offline"
 (time mvn dependency:go-offline >> "$log_file") 2>&1
@@ -35,6 +33,6 @@ echo "clean"
 (time mvn clean >> "$log_file") 2>&1
 
 echo "mvn clean install -o -Drat.skip=true"
-(time mvn clean install -o -Drat.skip=true >> "$log_file") 2>&1
+time mvn clean install -o -Drat.skip=true >> "$log_file"
 
 echo "Process completed. Time measurements saved in $log_file."
